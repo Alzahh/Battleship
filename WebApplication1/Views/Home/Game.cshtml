@@ -1,0 +1,118 @@
+﻿@using ClassLab
+
+<link href="@Url.Content("~/Content/Table.css")" rel="stylesheet" type="text/css"/>
+
+
+@{
+    ViewBag.Title = "Game";
+}
+@{
+    var rule = (Rules) Session["Rules"];
+    var data = rule.gameBoard;
+    var shown = (GameBoard) Session["Shown"];
+    var message = (String) ViewData["message"];
+}
+
+<h2>Game</h2>
+
+<div class="container">
+    <table id="tblOne" style="width: 40%; float: left">
+        <tr class="grid">
+            @for (int i = -1; i < data.Size; i++)
+            {
+                <td>
+                    <div class="content">
+                        @if (i >= 0)
+                        {
+                            @i
+                        }
+
+                    </div>
+                </td>
+            }
+        </tr>
+        @for (int x = 0; x < data.Size; x++)
+        {
+            <tr class="grid">
+                <td>
+                    <div class="content">@x</div>
+                </td>
+                @for (int y = 0; y < data.Size; y++)
+                {
+                    var val = data.Board[x][y];
+                    <td>
+                        <button class="content">@data.GetBoardSquareStateSymbol(val)</button>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+    <table id="tblTwo" style="width: 40%; float: right">
+        <tr class="grid">
+            @for (int i = -1; i < shown.Size; i++)
+            {
+                <td>
+                    <div class="content">
+                        @if (i >= 0)
+                        {
+                            @i
+                        }
+
+                    </div>
+                </td>
+            }
+        </tr>
+        @for (int x = 0; x < shown.Size; x++)
+        {
+            <tr class="grid">
+                <td>
+                    <div class="content">@x</div>
+                </td>
+                @for (int y = 0; y < shown.Size; y++)
+                {
+                    var val = shown.Board[x][y];
+                    <td>
+                        <button onclick="myFunction(this.id)" class="content" id="@x:@y">@shown.GetBoardSquareStateSymbol(val)</button>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+
+    @using (Html.BeginForm("Game", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("x", "-1", new {id = "x"})
+        @Html.Hidden("y", "-1", new {id = "y"})
+        <input type="submit" value="send" style="visibility: hidden;" id="sender"/>
+    }
+
+
+
+
+</div>
+
+<div>
+    <label id="message">@message</label>
+    @using (Html.BeginForm("ToSave", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("ended", "0")
+
+        <input type="submit" value="Save Game"/>
+    }
+</div>
+
+<script>
+
+    function myFunction(clickedId) {
+        if (document.getElementById(clickedId).innerHTML === " ") {
+            var x = document.getElementById("x");
+            var y = document.getElementById("y");
+            var splited = clickedId.split(":");
+            x.value = splited[0];
+            y.value = splited[1];
+
+            document.getElementById("sender").click();;
+        }
+    }
+</script>

@@ -1,0 +1,81 @@
+﻿@using ClassLab
+@{
+    ViewBag.Title = "Home Page";
+}
+@model ClassLab.Settings
+
+
+<link href="@Url.Content("~/Content/StyleSheet1.css")" rel="stylesheet" type="text/css"/>
+
+<h2>Main rules</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="container">
+
+        <div class="row">
+            <div class="col-25">
+                <label>Can ships touch?</label>
+            </div>
+            <div class="col-75">
+                @Html.RadioButton("canTouch", "true") Yes
+                @Html.RadioButton("canTouch", "false", true) No
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>Random placement?</label>
+            </div>
+            <div class="col-75">
+                @Html.RadioButton("randomPos", "true") Yes
+                @Html.RadioButton("randomPos", "false", true) No
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>Board size</label>
+            </div>
+            <div class="col-75">
+                @Html.TextBox("boardSize", "10")
+            </div>
+        </div>
+
+        <h2>Ships settings</h2>
+
+        <table>
+            <tr>
+                <th>Ship</th>
+                <th>Size</th>
+                <th>Number</th>
+            </tr>
+            <tr>
+                <td>Carrier</td>
+                <td>@Html.TextBox("carrierSize", "5")</td>
+                <td>@Html.TextBox("carrierNum", "1")</td>
+            </tr>
+            <tr>
+                <td>Battleship</td>
+                <td>@Html.TextBox("battleshipSize", "4")</td>
+                <td>@Html.TextBox("battleshipNum", "1")</td>
+            </tr>
+            <tr>
+                <td>Submarine</td>
+                <td>@Html.TextBox("submarineSize", "3")</td>
+                <td>@Html.TextBox("submarineNum", "1")</td>
+            </tr>
+            <tr>
+                <td>Cruiser</td>
+                <td>@Html.TextBox("cruiserSize", "2")</td>
+                <td>@Html.TextBox("cruiserNum", "1")</td>
+            </tr>
+            <tr>
+                <td>Patrol</td>
+                <td>@Html.TextBox("patrolSize", "1")</td>
+                <td>@Html.TextBox("patrolNum", "1")</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <input type="submit" value="Play" />
+}

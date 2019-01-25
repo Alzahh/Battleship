@@ -1,0 +1,108 @@
+﻿@using ClassLab
+
+<link href="@Url.Content("~/Content/Table.css")" rel="stylesheet" type="text/css"/>
+
+
+@{
+    ViewBag.Title = "Show";
+}
+@{
+
+    var shown = (GameBoard) Session["Shown"];
+    var Pt = (PlayersTurn) Session["Pt"];
+    var counter = (int) Session["number"];
+
+    var message = "";
+    var butVal = "Next move";
+
+    if (Pt.Gb.GetHp() == 0)
+    {
+        message = "Ai won!";
+        butVal = "End";
+    }
+    if (Pt.Hiden.GetHp() == 0)
+    {
+        message = "Player won!";
+        butVal = "End";
+    }
+}
+
+<h2>Replay</h2>
+
+<div class="container">
+    <table id="tblOne" style="width: 40%; float: left">
+        <tr class="grid">
+            @for (int i = -1; i < Pt.Gb.Size; i++)
+            {
+                <td>
+                    <div class="content">
+                        @if (i >= 0)
+                        {
+                            @i
+                        }
+
+                    </div>
+                </td>
+            }
+        </tr>
+        @for (int x = 0; x < Pt.Gb.Size; x++)
+        {
+            <tr class="grid">
+                <td>
+                    <div class="content">@x</div>
+                </td>
+                @for (int y = 0; y < Pt.Gb.Size; y++)
+                {
+                    var val = Pt.Gb.Board[x][y];
+                    <td>
+                        <button class="content">@Pt.Gb.GetBoardSquareStateSymbol(val)</button>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+    <table id="tblTwo" style="width: 40%; float: right">
+        <tr class="grid">
+            @for (int i = -1; i < shown.Size; i++)
+            {
+                <td>
+                    <div class="content">
+                        @if (i >= 0)
+                        {
+                            @i
+                        }
+
+                    </div>
+                </td>
+            }
+        </tr>
+        @for (int x = 0; x < shown.Size; x++)
+        {
+            <tr class="grid">
+                <td>
+                    <div class="content">@x</div>
+                </td>
+                @for (int y = 0; y < shown.Size; y++)
+                {
+                    var val = shown.Board[x][y];
+                    <td>
+                        <button class="content" id="@x:@y">@shown.GetBoardSquareStateSymbol(val)</button>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+</div>
+
+<h3 id="redirect">@message</h3>
+
+<div>
+    @using (Html.BeginForm("Show", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("message", "", new {id = "box"})
+
+        <input onclick="myFunction()" type="submit" value=@butVal>
+    }
+
+</div>

@@ -1,0 +1,99 @@
+﻿@using ClassLab
+
+<link href="@Url.Content("~/Content/Table.css")" rel="stylesheet" type="text/css"/>
+
+
+@{
+    ViewBag.Title = "Game over";
+}
+@{
+    var rule = (Rules) Session["Rules"];
+    var data = rule.gameBoard;
+    var shown = (GameBoard) Session["Shown"];
+    var aiHp = (int) Session["AiHP"];
+    var winner = "AI";
+    if (aiHp == 0)
+    {
+        winner = "You";
+    }
+}
+
+<h2>Game over</h2>
+<h3>@winner Won</h3>
+
+<div class="container">
+    <table id="tblOne" style="width: 40%; float: left">
+        <tr class="grid">
+            @for (int i = -1; i < data.Size; i++)
+            {
+                <td>
+                    <div class="content">
+                        @if (i >= 0)
+                        {
+                            @i
+                        }
+
+                    </div>
+                </td>
+            }
+        </tr>
+        @for (int x = 0; x < data.Size; x++)
+        {
+            <tr class="grid">
+                <td>
+                    <div class="content">@x</div>
+                </td>
+                @for (int y = 0; y < data.Size; y++)
+                {
+                    var val = data.Board[x][y];
+                    <td>
+                        <button class="content">@data.GetBoardSquareStateSymbol(val)</button>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+    <table id="tblTwo" style="width: 40%; float: right">
+        <tr class="grid">
+            @for (int i = -1; i < shown.Size; i++)
+            {
+                <td>
+                    <div class="content">
+                        @if (i >= 0)
+                        {
+                            @i
+                        }
+
+                    </div>
+                </td>
+            }
+        </tr>
+        @for (int x = 0; x < shown.Size; x++)
+        {
+            <tr class="grid">
+                <td>
+                    <div class="content">@x</div>
+                </td>
+                @for (int y = 0; y < shown.Size; y++)
+                {
+                    var val = shown.Board[x][y];
+                    <td>
+                        <button class="content" id="@x:@y">@shown.GetBoardSquareStateSymbol(val)</button>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+
+</div>
+
+<div>
+    @using (Html.BeginForm("ToSave", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("ended", "1")
+
+        <input type="submit" value="Save replay"/>
+    }
+
+</div>

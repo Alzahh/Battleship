@@ -1,0 +1,95 @@
+﻿@using ClassLab
+
+<link href="@Url.Content("~/Content/Table.css")" rel="stylesheet" type="text/css"/>
+@{
+    ViewBag.Title = "SetUp";
+    var ship = (Ship) ViewData["Ship"];
+}
+@{
+    var rule = (Rules) Session["Rules"];
+    var data = rule.gameBoard;
+}
+
+<h4>Ship placement</h4>
+
+<table>
+    <tr class="grid">
+        @for (int i = -1; i < data.Size; i++)
+        {
+            <td>
+                <div class="content">
+                    @if (i >= 0)
+                    {
+                        @i
+                    }
+
+                </div>
+            </td>
+        }
+    </tr>
+    @for (int x = 0; x < data.Size; x++)
+    {
+        <tr class="grid">
+            <td>
+                <div class="content">@x</div>
+            </td>
+            @for (int y = 0; y < data.Size; y++)
+            {
+                var val = data.Board[x][y];
+                <td>
+                    <button onclick="myFunction(this.id)" class="content" id="@x:@y">@data.GetBoardSquareStateSymbol(val)</button>
+                </td>
+            }
+        </tr>
+    }
+</table>
+
+
+@using (Html.BeginForm("SetUp", "Home", FormMethod.Post))
+{
+<div>
+    @Html.RadioButton("toSave", "true", new { id = "saveTrue"  , style = "visibility:hidden;" })
+
+    @Html.RadioButton("toSave", "false", true, new { id = "saveFalse" , style = "visibility:hidden;" })
+
+
+    @Html.TextBox("y", "0", new { id = "y" , style = "visibility:hidden;" })
+
+
+    @Html.TextBox("x", "0", new { id = "x" , style = "visibility:hidden;" })
+
+    <input type="submit" value="send" style = "visibility:hidden;" id ="sender"/>
+</div>
+}
+
+<div>
+    <label>
+        @ship.ShipName len : @ship.Len
+    </label>
+</div>
+
+
+<script>
+    function myFunction(clickedId) {
+        if (document.getElementById(clickedId).innerHTML === "O") {
+            var x = document.getElementById("x");
+            var y = document.getElementById("y");
+            var splited = clickedId.split(":");
+            x.value = splited[0];
+            y.value = splited[1];
+            var save = document.getElementById("saveTrue");
+            save.checked = true;
+        } else {
+            var sa = document.getElementById("saveFalse");
+            sa.checked = true;
+            var x = document.getElementById("x");
+            var y = document.getElementById("y");
+            var splited = clickedId.split(":");
+            x.value = splited[0];
+            y.value = splited[1];
+
+        }
+        document.getElementById("sender").click();;
+
+    }
+</script>

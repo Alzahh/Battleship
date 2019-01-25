@@ -1,0 +1,12 @@
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\ClassLab.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\ClassLab.pdb
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\obj\Debug\ClassLab.csproj.CoreCompileInputs.cache
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\obj\Debug\ClassLab.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\obj\Debug\ClassLab.pdb
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\obj\Debug\ClassLab.csprojAssemblyReference.cache
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\ClassLab.dll.config
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\EntityFramework.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\EntityFramework.xml
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\ClassLab\obj\Debug\ClassLab.csproj.CopyComplete

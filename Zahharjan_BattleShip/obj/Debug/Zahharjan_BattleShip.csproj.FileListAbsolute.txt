@@ -1,0 +1,15 @@
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\Zahharjan_BattleShip.pdb
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\EntityFramework.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\EntityFramework.xml
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\obj\Debug\Zahharjan_BattleShip.csproj.CoreCompileInputs.cache
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\obj\Debug\Zahharjan_BattleShip.csproj.CopyComplete
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\obj\Debug\Zahharjan_BattleShip.pdb
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\obj\Debug\Zahharjan_BattleShip.csprojAssemblyReference.cache
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\Zahharjan_BattleShip.exe.config
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\Zahharjan_BattleShip.exe
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\obj\Debug\Zahharjan_BattleShip.exe
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\ClassLab.dll
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\ClassLab.pdb
+C:\Users\zahha\source\repos\Zahharjan_BattleShip\Zahharjan_BattleShip\bin\Debug\ClassLab.dll.config

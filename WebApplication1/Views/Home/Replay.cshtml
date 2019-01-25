@@ -1,0 +1,63 @@
+﻿@using ClassLab
+@{
+    ViewBag.Title = "Replays";
+    var lines = (List<Save>)Session["SaveLines"];
+}
+
+<link href="@Url.Content("~/Content/StyleSheet1.css")" rel="stylesheet" type="text/css" />
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Board size</th>
+        <th>Can touch</th>
+        <th></th>
+    </tr>
+    @{
+        int i = 0;
+
+        foreach (var line in lines)
+        {
+            if (line.Ended == 1)
+            {
+                <tr>
+                    <th>
+                        @line.Time
+                    </th>
+                    <th>
+                        @line.Board_size
+                    </th>
+                    <th>
+                        @line.CanTouch
+                    </th>
+                    <th>
+                        <input onclick="ChooseLine(this.id)" type="submit" value="Load" class="load" id="@i" />
+                    </th>
+                </tr>
+            }
+            i++;
+
+        }
+    }
+
+
+</table>
+
+@using (Html.BeginForm("Replay", "Home", FormMethod.Post))
+{
+    @Html.Hidden("index", "-1", new { id = "index" })
+    <input type="submit" value="send" style="visibility: hidden;" id="sender" />
+}
+
+
+<script>
+    function ChooseLine(clickedId) {
+        var i = document.getElementById("index");
+        i.value = clickedId;
+        document.getElementById("sender").click();
+    }
+</script>
